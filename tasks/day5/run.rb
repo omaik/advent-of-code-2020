@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Tasks
   module Day5
@@ -10,11 +11,11 @@ module Tasks
 
       def call2
         sorted_seats = seats.map(&:seat_id).sort
-        (sorted_seats.first..sorted_seats.last).to_a - sorted_seats
+        ((sorted_seats.first..sorted_seats.last).to_a - sorted_seats).first
       end
 
       def seats
-        Inputs::Seat.new(INPUT_FILE_PATH).()
+        Inputs::Seat.new(INPUT_FILE_PATH).call
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Entities
   class Passport
     HEIGHT_VALIDATOR = lambda { |x|
@@ -14,9 +16,9 @@ module Entities
                    'iyr' => ->(x) { (2010..2020).include?(x.to_i) },
                    'eyr' => ->(x) { (2020..2030).include?(x.to_i) },
                    'hgt' => HEIGHT_VALIDATOR,
-                   'hcl' => ->(x) { /^#[0-9a-f]{6,6}$/ === x },
+                   'hcl' => ->(x) { /^#[0-9a-f]{6,6}$/ =~ x },
                    'ecl' => ->(x) { %w[amb blu brn gry grn hzl oth].include?(x) },
-                   'pid' => ->(x) { /^\d{9,9}$/ === x } }.freeze
+                   'pid' => ->(x) { /^\d{9,9}$/ =~ x } }.freeze
 
     def initialize(line)
       @line = line

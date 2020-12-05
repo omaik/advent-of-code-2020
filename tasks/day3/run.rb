@@ -7,7 +7,9 @@ module Tasks
 
       # 247
       def call1(step_left = 3, step_bottom = 1)
-        left_position, top_position, trees_count = 0, 0, 0
+        left_position = 0
+        top_position = 0
+        trees_count = 0
 
         loop do
           left_position += step_left
@@ -24,7 +26,7 @@ module Tasks
 
       # 2983070376
       def call2
-        [[1,1],[3,1], [5,1], [7,1], [1,2]].map { |x| call1(*x) }.reduce(:*)
+        [[1, 1], [3, 1], [5, 1], [7, 1], [1, 2]].map { |x| call1(*x) }.reduce(:*)
       end
 
       private

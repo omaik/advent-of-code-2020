@@ -16,7 +16,7 @@ module Tasks
       end
 
       def passports
-        Inputs::Passport.new(INPUT_FILE_PATH).()
+        Inputs::Passport.new(INPUT_FILE_PATH).call
       end
     end
   end
